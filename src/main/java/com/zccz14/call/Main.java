@@ -7,6 +7,7 @@ import javax.sound.sampled.AudioFormat;
  */
 public class Main {
     public static final int defaultPort = 9527;
+    public static final int defaultBufferSize = 1024;
     public static final AudioFormat defaultAudioFormat = new AudioFormat(8000, 16, 2, true, true);
 
     public static void main(String[] args) {

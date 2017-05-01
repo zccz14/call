@@ -12,7 +12,7 @@ public class AudioWriter {
         DataLine.Info info = new DataLine.Info(SourceDataLine.class, format);
         try {
             line = (SourceDataLine) AudioSystem.getLine(info);
-            line.open(format, line.getBufferSize());
+            line.open(format, Main.defaultBufferSize);
             line.start();
         } catch (LineUnavailableException e) {
             e.printStackTrace();
@@ -31,7 +31,4 @@ public class AudioWriter {
         line.write(bytes, 0, bytes.length);
     }
 
-    public int getLineBufferSize() {
-        return line.getBufferSize();
-    }
 }

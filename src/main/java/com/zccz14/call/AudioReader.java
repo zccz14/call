@@ -20,21 +20,8 @@ public class AudioReader {
         }
     }
 
-    public static void main(String[] args) {
-        AudioFormat format = new AudioFormat(8000, 16, 2, true, true);
-        AudioReader reader = new AudioReader(format);
-        AudioWriter writer = new AudioWriter(format);
-        byte[] bytes = new byte[reader.line.getBufferSize()];
-        reader.line.start();
-        while (reader.line.isActive()) {
-            reader.line.read(bytes, 0, bytes.length);
-            System.out.println(bytes.length);
-            writer.play(bytes);
-        }
-    }
-
     public byte[] read() {
-        byte[] bytes = new byte[line.getBufferSize()];
+        byte[] bytes = new byte[Main.defaultBufferSize];
         line.read(bytes, 0, bytes.length);
         return bytes;
     }
@@ -45,9 +32,5 @@ public class AudioReader {
 
     public void stop() {
         line.stop();
-    }
-
-    public int getLineBufferSize() {
-        return line.getBufferSize();
     }
 }

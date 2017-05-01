@@ -36,7 +36,7 @@ public class Server {
         audioWriter = new AudioWriter(Main.defaultAudioFormat);
         handleUDP = new Thread(() -> {
             while (true) {
-                byte[] bytes = new byte[audioWriter.getLineBufferSize()];
+                byte[] bytes = new byte[Main.defaultBufferSize];
                 DatagramPacket packet = new DatagramPacket(bytes, bytes.length);
                 try {
                     datagramSocket.receive(packet);
