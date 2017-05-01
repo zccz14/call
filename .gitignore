@@ -1,0 +1,4 @@
+*.jar
+
+.idea/workspace.xml
+.idea/tasks.xml
